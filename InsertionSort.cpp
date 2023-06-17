@@ -2,10 +2,6 @@
 
 InsertionSort::InsertionSort() = default;
 
-void InsertionSort::Print(const std::string& message) {
-    std::cout << message << std::endl;
-}
-
 void InsertionSort::SortByAscending(int elements[], int size) {
     for (int i = 1; i < size; i++) {
         int selectedElement = elements[i];
