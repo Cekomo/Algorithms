@@ -3,4 +3,4 @@ project(Algorithms)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Algorithms InsertionSort.cpp InsertionSort.h NumberGenerator.cpp)
+add_executable(Algorithms InsertionSort.cpp InsertionSort.h NumberGenerator.cpp main.cpp)

@@ -1,7 +1,6 @@
 # ninja log v5
-2	421	7086032752170360	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
+3	391	7086042974574587	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
 2	409	7086031891561632	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
-280	361	7085677738104486	Algorithms.exe	aa94a40cb38c9190
+391	464	7086042975271239	Algorithms.exe	193f51202a5152f5
 6	250	7085677737021907	CMakeFiles/Algorithms.dir/InsertionSort.cpp.obj	1aa0984cfaea3a4f
-0	111	7086033439100294	build.ninja	a6621291fb60fe22
-2	76	7086033440338001	Algorithms.exe	193f51202a5152f5
+0	111	7086051505340895	build.ninja	a6621291fb60fe22

@@ -10,6 +10,7 @@ public:
     InsertionSort();
     ~InsertionSort();
     void Print(const std::string&);
+    static void SortByAscending(int elements[], int);
 };
 
 
