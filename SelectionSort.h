@@ -8,7 +8,7 @@ class SelectionSort {
 public:
     SelectionSort();
     ~SelectionSort();
-    void SortByAscending(int elements[], int size);
+    static void SortByAscending(int elements[], int size);
 };
 
 
