@@ -28,11 +28,11 @@
 //    }
 //
 //    // Display the generated numbers
-//    std::cout << "Generated random numbers: ";
-//    for (int i = 0; i < x; i++) {
-//        std::cout << numbers[i] << " ";
-//    }
-//    std::cout << std::endl;
+//    std::cout << "Generating random numbers...";
+////    for (int i = 0; i < x; i++) {
+////        std::cout << numbers[i] << " ";
+////    }
+////    std::cout << std::endl;
 //
 //    // Create and open the output file
 //    std::ofstream outputFile;

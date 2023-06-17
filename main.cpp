@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include "InsertionSort.h"
+#include <chrono>
 
 int ExtractSizeFromFilename(const std::string& filename) {
     // Find the position of the last underscore character
@@ -38,18 +39,30 @@ int main() {
 
         // Check if the array has reached its maximum size
         if (index >= size) {
-            std::cerr << "Array size exceeds maximum limit" << std::endl;
+//            std::cerr << "Array size exceeds maximum limit" << std::endl;
             break;
         }
     }
 
+    auto startTime = std::chrono::steady_clock::now();
     InsertionSort::SortByAscending(elements, size);
+    auto endTime = std::chrono::steady_clock::now();
 
-    for (int i = 0; i < size; i++)
-        std::cout << elements[i] << " ";
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
+
+    // Print variables
+//    for (int i = 0; i < size; i++)
+//        std::cout << elements[i] << " ";
+
+    std::cout << std::endl;
+    std::cout << "Time taken by algorithm: " << duration.count() << " milliseconds.";
 
     // Close the file
     inputFile.close();
+
+    std::cout << std::endl;
+    std::string bye;
+    std::cin >> bye;  // Wait for user to press enter
 
     //    delete[] elements;
     return 0;
