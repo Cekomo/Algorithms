@@ -1,8 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "InsertionSort.h"
 #include <chrono>
+
+#include "InsertionSort.h"
+#include "BubbleSort.h"
 
 int ExtractSizeFromFilename(const std::string& filename) {
     // Find the position of the last underscore character
@@ -46,6 +48,7 @@ int main() {
 
     auto startTime = std::chrono::steady_clock::now();
     InsertionSort::SortByAscending(elements, size);
+//    BubbleSort::SortByAscending(elements, size);
     auto endTime = std::chrono::steady_clock::now();
 
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
