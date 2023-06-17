@@ -28,12 +28,30 @@ int main() {
     // Read and display the contents of the file
     std::string line;
     int size = ExtractSizeFromFilename(fileName);
+    //    int* elements = new int[size];
     int elements[size];
+
+    int index = 0;
+    while (std::getline(inputFile, line)) {
+        // Convert the line to an integer and store it in the array
+        elements[index++] = std::stoi(line);
+
+        // Check if the array has reached its maximum size
+        if (index >= size) {
+            std::cerr << "Array size exceeds maximum limit" << std::endl;
+            break;
+        }
+    }
+
     InsertionSort::SortByAscending(elements, size);
+
+    for (int i = 0; i < size; i++)
+        std::cout << elements[i] << " ";
 
     // Close the file
     inputFile.close();
 
+    //    delete[] elements;
     return 0;
 }
 
