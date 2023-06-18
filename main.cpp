@@ -6,6 +6,7 @@
 #include "InsertionSort.h"
 #include "BubbleSort.h"
 #include "SelectionSort.h"
+#include "MergeSort.h"
 
 int ExtractSizeFromFilename(const std::string& filename) {
     // Find the position of the last underscore character
