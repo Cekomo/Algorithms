@@ -48,19 +48,7 @@ void MergeSort::SplitAndMerge(int mainArray[], int otherArray[], int mainSize, i
     int j = 0;
     int q = 0;
     for (int i = 0; i < mergedArraySize; i++) {
-       if (j >= firstArraySize) {
-           while (q < secondArraySize) {
-               mergedArray[i] = secondArray[q];
-               q++;
-           }
-       }
-       else if (q >= secondArraySize) {
-           while (j < firstArraySize) {
-               mergedArray[i] = firstArray[j];
-               j++;
-           }
-       }
-       else if (firstArray[j] < secondArray[q]) {
+       if (j < firstArraySize && (q >= secondArraySize || firstArray[j] < secondArray[q])) {
            mergedArray[i] = firstArray[j];
            j++;
        }
