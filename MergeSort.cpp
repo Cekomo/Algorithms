@@ -2,34 +2,16 @@
 
 MergeSort::MergeSort() = default;
 
-void MergeSort::SortByAscending(int elements[], int size) {
-    int firstArraySize = size / 2;
-    int secondArraySize = size - firstArraySize;
+void MergeSort::SplitAndMerge(int mainArray[], int mainSize) {
+//    if (mainSize <= 1) return;
 
-    int firstArray[firstArraySize];
-    int secondArray[secondArraySize];
-
-    for (int i = 0; i < size; i++) {
-        if (i < firstArraySize)
-            firstArray[i] = elements[i];
-        else
-            secondArray[i - firstArraySize] = elements[i];
-    }
-
-    if (size != 1) { // insert it to the beginning and check performance difference
-        MergeSort::SplitAndMerge(firstArray, secondArray, firstArraySize, secondArraySize);
-        MergeSort::SplitAndMerge(secondArray, firstArray, secondArraySize, firstArraySize);
-    }
-
-    // implement here to make the array whole again
-}
-
-void MergeSort::SplitAndMerge(int mainArray[], int otherArray[], int mainSize, int otherSize) {
     int firstArraySize = mainSize / 2;
     int secondArraySize = mainSize - firstArraySize;
 
-    int firstArray[firstArraySize];
-    int secondArray[secondArraySize];
+    // implement variable length array if the size is small,
+    // while some IDEs supports VLA, others aren't
+    int* firstArray = new int[firstArraySize];
+    int* secondArray = new int[secondArraySize];
 
     for (int i = 0; i < mainSize; i++) {
         if (i < firstArraySize)
@@ -38,25 +20,27 @@ void MergeSort::SplitAndMerge(int mainArray[], int otherArray[], int mainSize, i
             secondArray[i - firstArraySize] = mainArray[i];
     }
 
-    if (mainSize != 1) { // insert it to the beginning and check performance difference
-        MergeSort::SplitAndMerge(firstArray, secondArray, firstArraySize, secondArraySize);
-        MergeSort::SplitAndMerge(secondArray, firstArray, secondArraySize, secondArraySize);
+    if (mainSize > 1) {
+        MergeSort::SplitAndMerge(firstArray, firstArraySize);
+        MergeSort::SplitAndMerge(secondArray, secondArraySize);
     }
 
-    int mergedArraySize = mainSize + otherSize;
-    int mergedArray[mergedArraySize];
     int j = 0;
     int q = 0;
-    for (int i = 0; i < mergedArraySize; i++) {
-       if (j < firstArraySize && (q >= secondArraySize || firstArray[j] < secondArray[q])) {
-           mergedArray[i] = firstArray[j];
-           j++;
-       }
-       else {
-           mergedArray[i] = secondArray[q];
-           q++;
-       }
+    for (int i = 0; i < mainSize; i++) {
+        if (j < firstArraySize && (q >= secondArraySize || firstArray[j] < secondArray[q])) {
+            mainArray[i] = firstArray[j];
+            j++;
+        }
+        else {
+            mainArray[i] = secondArray[q];
+            q++;
+        }
     }
+
+    delete[] firstArray;
+    delete[] secondArray;
 }
 
 MergeSort::~MergeSort() = default;
+

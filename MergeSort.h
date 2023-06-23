@@ -8,8 +8,7 @@ class MergeSort {
 public:
     MergeSort();
     ~MergeSort();
-    static void SortByAscending(int elements[], int);
-    static void SplitAndMerge(int mainArray[], int otherArray[], int, int);
+    static void SplitAndMerge(int elements[], int size);
 };
 
 #endif //ALGORITHMS_MERGESORT_H
