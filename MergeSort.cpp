@@ -3,7 +3,7 @@
 MergeSort::MergeSort() = default;
 
 void MergeSort::SplitAndMerge(int mainArray[], int mainSize) {
-//    if (mainSize <= 1) return;
+    if (mainSize <= 1) return;
 
     int firstArraySize = mainSize / 2;
     int secondArraySize = mainSize - firstArraySize;
@@ -20,10 +20,10 @@ void MergeSort::SplitAndMerge(int mainArray[], int mainSize) {
             secondArray[i - firstArraySize] = mainArray[i];
     }
 
-    if (mainSize > 1) {
+//    if (mainSize > 1) {
         MergeSort::SplitAndMerge(firstArray, firstArraySize);
         MergeSort::SplitAndMerge(secondArray, secondArraySize);
-    }
+//    }
 
     int j = 0;
     int q = 0;

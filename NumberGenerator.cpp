@@ -20,7 +20,7 @@
 //    std::uniform_int_distribution<> dis(y, z);
 //
 //    // Create an array to store the random numbers
-//    int numbers[x];
+//    int *numbers = new int[x];
 //
 //    // Generate and store random numbers
 //    for (int i = 0; i < x; i++) {
@@ -47,7 +47,9 @@
 //    // Close the output file
 //    outputFile.close();
 //
+//    std::cout << std::endl;
 //    std::cout << "Numbers saved in file: " << fileName << std::endl;
 //
+//    delete[] numbers;
 //    return 0;
 //}
