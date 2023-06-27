@@ -5,10 +5,10 @@ QuickSort::QuickSort() = default;
 void QuickSort::SortByAscendingOrder(int array[], int startingIndex, int size, int terminateCounter) {
     if (size <= 1) return;
 
-    int medianIndex = QuickSort::GetPivotIndex(array, size);
-    int pivot = array[medianIndex];
+    int medianIndex = QuickSort::GetPivotIndex(array + startingIndex, size);
+    int pivot = array[startingIndex + medianIndex];
     int i = startingIndex;
-    int j = size - 1;
+    int j = startingIndex + size - 1;
 
     while (i <= j) {
         while (array[i] < pivot)
@@ -24,24 +24,26 @@ void QuickSort::SortByAscendingOrder(int array[], int startingIndex, int size, i
         }
     }
 
-    std::swap(array[medianIndex], array[i - 1]); // check if j + 1 is valid
+    std::swap(array[startingIndex + medianIndex], array[i - 1]); // check if j + 1 is valid
 
     terminateCounter++;
-    if (!IsArraySorted(array, size) && terminateCounter < 5 * size) {
-        QuickSort::SortByAscendingOrder(array, startingIndex, medianIndex, terminateCounter);
-        QuickSort::SortByAscendingOrder(array, medianIndex, size - medianIndex - 1, terminateCounter);
-    }
 
+    if (!IsArraySorted(array + startingIndex, i - startingIndex - 1)) {
+        SortByAscendingOrder(array, startingIndex, i - 1 + startingIndex, terminateCounter);
+    }
+    if (!IsArraySorted(array + i, size)) {
+        SortByAscendingOrder(array, startingIndex + i, size - i - 1, terminateCounter);
+    }
 }
 
 int QuickSort::GetPivotIndex(const int *array, int size) {
     int first = array[0]; int middle = array[size/2]; int last= array[size-1];
     if ((first > middle && first < last) || (first < middle && first > last))
-        return first;
+        return 0;
     else if ((middle > first && middle < last) || (middle < first && middle > last))
-        return middle;
+        return size/2;
     else
-        return last;
+        return size-1;
 }
 
 bool QuickSort::IsArraySorted(const int *array, int size) {
