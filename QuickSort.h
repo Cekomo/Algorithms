@@ -8,7 +8,7 @@ class QuickSort {
 public:
     QuickSort();
     ~QuickSort();
-    void SortByAscendingOrder(int array[], int size);
+    static void SortByAscendingOrder(int array[], int startingIndex, int size, int terminateCounter);
     static int GetPivotIndex(const int *array, int size);
     static bool IsArraySorted(const int *array, int size);
 };
