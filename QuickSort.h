@@ -10,7 +10,6 @@ public:
     ~QuickSort();
     static void SortByAscendingOrder(int array[], int startingIndex, int size);
     static int GetPivotIndex(const int *array, int startingIndex, int size);
-    static bool IsArraySorted(const int *array, int size);
 };
 
 
