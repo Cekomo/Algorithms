@@ -2,6 +2,7 @@
 
 QuickSort::QuickSort() = default;
 
+// manual swapping increases speed ~%20 percent on a 500k element array
 void QuickSort::SortByAscendingOrder(int array[], int startingIndex, int size) {
     if (startingIndex >= size) return;
 
@@ -9,7 +10,9 @@ void QuickSort::SortByAscendingOrder(int array[], int startingIndex, int size) {
     int i = startingIndex; int j = size - 2;
     int pivot = array[pivotIndex];
 
-    std::swap(array[pivotIndex], array[size - 1]);
+    array[pivotIndex] = array[size - 1];
+    array[size - 1] = pivot;
+//    std::swap(array[pivotIndex], array[size - 1]);
 
     while (i <= j) {
         while (array[i] < pivot)
@@ -18,13 +21,18 @@ void QuickSort::SortByAscendingOrder(int array[], int startingIndex, int size) {
             j--;
 
         if (i <= j) {
-            std::swap(array[i], array[j]);
+//            std::swap(array[i], array[j]);
+            int arrayAtJ = array[j];
+            array[j] = array[i];
+            array[i] = arrayAtJ;
             i++;
             j--;
         }
     }
 
-    std::swap(array[size - 1], array[i]);
+    //    std::swap(array[size - 1], array[i]);
+    array[size - 1] = array[i];
+    array[i] = pivot;
 
     SortByAscendingOrder(array, startingIndex, i); // you can omit pivot by inserting "i - 1"
     SortByAscendingOrder(array, i+1, size);

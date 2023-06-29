@@ -1,23 +1,9 @@
 # ninja log v5
-2	247	7097318243149207	CMakeFiles/Algorithms.dir/QuickSort.cpp.obj	827ca43facde2a0d
-6	319	7097317789386432	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
-2	41	7097317786611748	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
+7	250	7097462095373319	CMakeFiles/Algorithms.dir/QuickSort.cpp.obj	827ca43facde2a0d
+2	329	7097462096165832	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
+2	46	7097319397954685	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
 16	300	7095989059962126	CMakeFiles/Algorithms.dir/SelectionSort.cpp.obj	723f69e3ed6849f3
 19	301	7095989059962126	CMakeFiles/Algorithms.dir/BubbleSort.cpp.obj	ff010f31ef19413e
 9	301	7095989059962126	CMakeFiles/Algorithms.dir/MergeSort.cpp.obj	9a354f9250c89909
 2	300	7095989059962126	CMakeFiles/Algorithms.dir/InsertionSort.cpp.obj	1aa0984cfaea3a4f
-248	322	7097318243874774	Algorithms.exe	97e826883736a683
-7	42	7097318593217912	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
-2	402	7097318596811850	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
-402	479	7097318597562657	Algorithms.exe	97e826883736a683
-2	41	7097318808272657	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
-6	319	7097318811050897	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
-319	390	7097318811740945	Algorithms.exe	97e826883736a683
-7	42	7097319224135995	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
-3	435	7097319228078614	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
-435	517	7097319228855723	Algorithms.exe	97e826883736a683
-2	46	7097319397954685	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
-7	331	7097319400795235	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
-331	404	7097319401513185	Algorithms.exe	97e826883736a683
-3	252	7097320002430268	CMakeFiles/Algorithms.dir/QuickSort.cpp.obj	827ca43facde2a0d
-252	329	7097320003180543	Algorithms.exe	97e826883736a683
+330	404	7097462096897070	Algorithms.exe	97e826883736a683
