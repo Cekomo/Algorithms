@@ -84,6 +84,12 @@
 		<Unit filename="/Users/cekomo/Documents/GitHub/Algorithms/BubbleSort.h">
 			<Option target="Algorithms"/>
 		</Unit>
+		<Unit filename="/Users/cekomo/Documents/GitHub/Algorithms/HeapSort.cpp">
+			<Option target="Algorithms"/>
+		</Unit>
+		<Unit filename="/Users/cekomo/Documents/GitHub/Algorithms/HeapSort.h">
+			<Option target="Algorithms"/>
+		</Unit>
 		<Unit filename="/Users/cekomo/Documents/GitHub/Algorithms/InsertionSort.cpp">
 			<Option target="Algorithms"/>
 		</Unit>

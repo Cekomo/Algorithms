@@ -153,6 +153,30 @@ BubbleSort.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/BubbleSort.cpp.s
 .PHONY : BubbleSort.cpp.s
 
+HeapSort.o: HeapSort.cpp.o
+.PHONY : HeapSort.o
+
+# target to build an object file
+HeapSort.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/HeapSort.cpp.o
+.PHONY : HeapSort.cpp.o
+
+HeapSort.i: HeapSort.cpp.i
+.PHONY : HeapSort.i
+
+# target to preprocess a source file
+HeapSort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/HeapSort.cpp.i
+.PHONY : HeapSort.cpp.i
+
+HeapSort.s: HeapSort.cpp.s
+.PHONY : HeapSort.s
+
+# target to generate assembly for a file
+HeapSort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/HeapSort.cpp.s
+.PHONY : HeapSort.cpp.s
+
 InsertionSort.o: InsertionSort.cpp.o
 .PHONY : InsertionSort.o
 
@@ -309,6 +333,9 @@ help:
 	@echo "... BubbleSort.o"
 	@echo "... BubbleSort.i"
 	@echo "... BubbleSort.s"
+	@echo "... HeapSort.o"
+	@echo "... HeapSort.i"
+	@echo "... HeapSort.s"
 	@echo "... InsertionSort.o"
 	@echo "... InsertionSort.i"
 	@echo "... InsertionSort.s"
