@@ -2,7 +2,13 @@
 
 HeapSort::HeapSort() = default;
 
+void HeapSort::SortByAscendingOrder(int heapArray[], int size) {
+    Heapify(heapArray, size, size/2 - 1);
 
+    int *sortingArray = new int[size];
+    SortAsMaxHeap(heapArray, sortingArray, size, 0);
+//    delete[] sortingArray;
+}
 
 void HeapSort::Heapify(int array[], int size, int index) {
     if (index < 0) return;
@@ -34,7 +40,7 @@ void HeapSort::SortAsMaxHeap(int heapArray[], int sortedArray[], int size, int i
     heapArray[0] = heapArray[size - 1];
 
     int i = 0;
-    while (i <= size) {
+    while (i < size) {
         if (heapArray[2*i+1] > heapArray[2*i+2] && heapArray[2*i+1] > heapArray[i]) {
             std::swap(heapArray[index], heapArray[2*i+1]);
             i = 2 * i + 1;
@@ -48,8 +54,6 @@ void HeapSort::SortAsMaxHeap(int heapArray[], int sortedArray[], int size, int i
     }
 
     SortAsMaxHeap(heapArray, sortedArray, size - 1, index);
-
-    delete[] sortedArray;
 }
 
 HeapSort::~HeapSort() = default;
