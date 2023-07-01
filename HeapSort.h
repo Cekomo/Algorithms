@@ -8,9 +8,9 @@ class HeapSort {
 public:
     HeapSort();
     ~HeapSort();
-    void SortByAscendingOrder(int array[], int size);
-    void Heapify(int array[], int size, int index);
-    void SortAsMaxHeap(int heapArray[], int sortedArray[], int size, int index);
+    static void SortByAscendingOrder(int array[], int size);
+    static void Heapify(int array[], int size, int index);
+    static void SortAsMaxHeap(int heapArray[], int sortedArray[], int size, int index);
 };
 
 
