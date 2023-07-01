@@ -8,7 +8,7 @@ class HeapSort {
 public:
     HeapSort();
     ~HeapSort();
-    void SortByAscendingOrder();
+    void SortByAscendingOrder(int array[], int size);
 };
 
 
