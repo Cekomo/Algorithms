@@ -3,60 +3,32 @@
 HeapSort::HeapSort() = default;
 
 void HeapSort::SortByAscendingOrder(int heapArray[], int size) {
-    Heapify(heapArray, size, size/2 - 1);
-
-    int *sortingArray = new int[size];
-    SortAsMaxHeap(heapArray, sortingArray, size, 0);
-
-    for (int i = 0; i < size; i++)
-        std::cout << sortingArray[i] << " ";
-    delete[] sortingArray;
+    int nonLeafIndex = size / 2 - 1;
+    while (nonLeafIndex >= 0) {
+        Heapify(heapArray, size, nonLeafIndex);
+        nonLeafIndex--;
+    }
 }
 
 void HeapSort::Heapify(int array[], int size, int index) {
-    if (index < 0) return;
-    int swapCandidate; int candidateIndex;
-    if (array[2*index + 1] > array[2*index + 2]) {
-        swapCandidate = array[2*index+1];
-        candidateIndex = 2*index + 1;
-    }
-    else {
-        swapCandidate = array[2*index + 2];
-        candidateIndex = 2*index + 2;
-    }
+    if (index < 0 || index > size - 1) return;
 
-    if (array[index] < swapCandidate) {
-        std::swap(array[candidateIndex], array[index]);
+    int leftChild = 2 * index + 1;
+    int rightChild = 2 * index + 2;
+
+    if (leftChild < size && array[leftChild] > array[rightChild] && array[leftChild] > array[index]) {
+        std::swap(array[leftChild], array[index]);
+        Heapify(array, size, leftChild);
     }
-
-    Heapify(array, size, index - 1);
-    if (index > ((size / 2) - 1) / 2 - 1) return;
-    Heapify(array, size, candidateIndex);
-
+    // (rightChild < size && array[rightChild] > array[index]) // compare performance diff
+    else if (rightChild < size && array[rightChild] > array[leftChild] && array[rightChild] > array[index]) {
+        std::swap(array[rightChild], array[index]);
+        Heapify(array, size, rightChild);
+    }
 }
 
 void HeapSort::SortAsMaxHeap(int heapArray[], int sortedArray[], int size, int index) {
-    if (size < 1) return;
 
-    sortedArray[index] = heapArray[0];
-    index++;
-    heapArray[0] = heapArray[size - 1];
-
-    int i = 0;
-    while (2*i+1 < size) {
-        if (heapArray[2*i+1] > heapArray[2*i+2] && heapArray[2*i+1] > heapArray[i]) {
-            std::swap(heapArray[i], heapArray[2*i+1]);
-            i = 2 * i + 1;
-        }
-        else if (heapArray[2*i+2] > heapArray[2*i+1] && heapArray[2*i+2] > heapArray[i]) {
-            std::swap(heapArray[i], heapArray[2*i+2]);
-            i = 2 * i + 2;
-        }
-        else
-            break;
-    }
-
-    SortAsMaxHeap(heapArray, sortedArray, size - 1, index);
 }
 
 HeapSort::~HeapSort() = default;
