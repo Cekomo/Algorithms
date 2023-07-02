@@ -62,8 +62,8 @@ int main() {
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
 
     // Print variables
-    for (int i = 0; i < size; i++)
-        std::cout << elements[i] << " ";
+//    for (int i = 0; i < size; i++)
+//        std::cout << elements[i] << " ";
 
 
     std::cout << std::endl;
