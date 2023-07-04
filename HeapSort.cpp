@@ -19,12 +19,12 @@ void HeapSort::SortByAscendingOrder(int heapArray[], int size) {
 }
 
 void HeapSort::Heapify(int array[], int size, int index) {
-    if (index < 0 || index > size - 1) return; // omit "|| index > size - 1" if possible
+    if (index < 0) return; // omit "|| index > size - 1" if possible
 
     int leftChild = 2 * index + 1;
     int rightChild = 2 * index + 2;
 
-    if (leftChild < size && array[leftChild] > array[rightChild] && array[leftChild] > array[index]) {
+    if (leftChild < size && array[leftChild] >= array[rightChild] && array[leftChild] > array[index]) {
         std::swap(array[leftChild], array[index]);
         Heapify(array, size, leftChild);
     }
