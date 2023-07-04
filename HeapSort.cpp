@@ -9,59 +9,63 @@ void HeapSort::SortByAscendingOrder(int heapArray[], int size) {
         nonLeafIndex--;
     }
 
-    int *sortedArray = new int[size];
-    SortAsMaxHeap(heapArray, sortedArray, size, 0);
+    int *sortingArray = new int[size];
+    int index = 0;
+    while (size >= 1) {
+        SortByTakingRoot(heapArray, sortingArray, size, index);
+        size--;
+        index++;
+    }
 
-//    for (int i = 0; i < size; i++)
-//        std::cout << sortedArray[i] << " ";
+    for (int i = 0; i < index; i++)
+        std::cout << sortingArray[i] << " ";
 
-    delete[] sortedArray;
+    delete[] sortingArray;
 }
 
 void HeapSort::Heapify(int array[], int size, int index) {
-    if (index < 0) return; // omit "|| index > size - 1" if possible
+    if (index < 0) return;
 
     int leftChild = 2 * index + 1;
     int rightChild = 2 * index + 2;
 
+    int parentNode = array[index];
     if (leftChild < size && array[leftChild] >= array[rightChild] && array[leftChild] > array[index]) {
-        std::swap(array[leftChild], array[index]);
+        array[index] = array[leftChild];
+        array[leftChild] = parentNode;
         Heapify(array, size, leftChild);
     }
-    // (rightChild < size && array[rightChild] > array[index]) // compare performance diff
     else if (rightChild < size && array[rightChild] > array[leftChild] && array[rightChild] > array[index]) {
-        std::swap(array[rightChild], array[index]);
+        array[index] = array[rightChild];
+        array[rightChild] = parentNode;
         Heapify(array, size, rightChild);
     }
 }
 
-void HeapSort::SortAsMaxHeap(int heapArray[], int sortedArray[], int size, int index) {
-    if (size <= 1) {
-        sortedArray[index] = heapArray[0];
-        return;
-    }
-
+void HeapSort::SortByTakingRoot(int heapArray[], int sortedArray[], int size, int index) {
     sortedArray[index] = heapArray[0];
-    index++;
+    if (size == 1) return;
+
     heapArray[0] = heapArray[size - 1];
 
     RelocateRootedNode(heapArray, size - 1, 0); // I changed size = size - 1
-
-    SortAsMaxHeap(heapArray, sortedArray, size - 1, index);
 }
 
 void HeapSort::RelocateRootedNode(int heapArray[], int size, int swappableIndex) {
     int leftChild = 2 * swappableIndex + 1;
     int rightChild = 2 * swappableIndex + 2;
 
+    int parentNode = heapArray[swappableIndex];
     if (leftChild < size && heapArray[leftChild] > heapArray[swappableIndex]
     && heapArray[leftChild] >= heapArray[rightChild]) {
-        std::swap(heapArray[leftChild], heapArray[swappableIndex]);
+        heapArray[swappableIndex] = heapArray[leftChild];
+        heapArray[leftChild] = parentNode;
         RelocateRootedNode(heapArray, size, leftChild);
     }
     else if (rightChild < size && heapArray[rightChild] > heapArray[swappableIndex]
     && heapArray[rightChild] > heapArray[leftChild]) {
-        std::swap(heapArray[rightChild], heapArray[swappableIndex]);
+        heapArray[swappableIndex] = heapArray[rightChild];
+        heapArray[rightChild] = parentNode;
         RelocateRootedNode(heapArray, size, rightChild);
     }
 }
