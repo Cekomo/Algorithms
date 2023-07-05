@@ -9,6 +9,7 @@
 #include "MergeSort.h"
 #include "QuickSort.h"
 #include "HeapSort.h"
+#include "RadixSort.h"
 
 int ExtractSizeFromFilename(const std::string& filename) {
     // Find the position of the last underscore character
@@ -57,7 +58,8 @@ int main() {
 //    SelectionSort::SortByAscending(elements,size);
 //    MergeSort::SplitAndMerge(elements, size);
 //    QuickSort::SortByAscendingOrder(elements, 0, size);
-    HeapSort::SortByAscendingOrder(elements, size);
+//    HeapSort::SortByAscendingOrder(elements, size);
+    RadixSort::SortElementsByAscendingOrder(elements, size);
 
     auto endTime = std::chrono::steady_clock::now();
 

@@ -9,8 +9,9 @@ class RadixSort {
 public:
     RadixSort();
     ~RadixSort();
-    int GetStepNumber(int array[], int size);
-    void SortElementsRespectingDigits(int array[], int size);
+    static int GetStepNumber(int array[], int size);
+    static void SortElementsByAscendingOrder(int array[], int size);
+    static void DistributeElementsByRadix(int array[], int size, int step)
 };
 
 

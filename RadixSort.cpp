@@ -20,8 +20,33 @@ int RadixSort::GetStepNumber(int array[], int size) {
     return digitCount;
 }
 
-void RadixSort::SortElementsRespectingDigits(int array[], int size) {
-    
+void RadixSort::SortElementsByAscendingOrder(int array[], int size) {
+    int stepCount = GetStepNumber(array, size);
+
+    int stepIndex = 0;
+    while (stepIndex < stepCount) {
+        DistributeElementsByRadix(array, size, stepIndex);
+        stepIndex++;
+    }
+
+}
+
+void RadixSort::DistributeElementsByRadix(int array[], int size, int step) {
+    int radixArray[10][size/2]; // static array assignment can cause limitation problem on sizing
+    int currentRadixIndex[10];
+
+    for (int i = 0; i < size; i++) {
+        int modulo = array[i] / pow(10, step);
+        modulo = modulo % 10;
+        radixArray[modulo][currentRadixIndex[modulo]] = array[i];
+        currentRadixIndex[modulo]++;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < currentRadixIndex[i]; j++) {
+            array[i] = radixArray[i][j];
+        }
+    }
 }
 
 RadixSort::~RadixSort() = default;
