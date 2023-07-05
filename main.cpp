@@ -51,12 +51,14 @@ int main() {
     }
 //
     auto startTime = std::chrono::steady_clock::now();
+
 //    InsertionSort::SortByAscending(elements, size);
 //    BubbleSort::SortByAscending(elements, size);
 //    SelectionSort::SortByAscending(elements,size);
 //    MergeSort::SplitAndMerge(elements, size);
 //    QuickSort::SortByAscendingOrder(elements, 0, size);
     HeapSort::SortByAscendingOrder(elements, size);
+
     auto endTime = std::chrono::steady_clock::now();
 
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);

@@ -16,5 +16,4 @@ private:
     int *sortingArray;
 };
 
-
 #endif
