@@ -3,7 +3,7 @@
 RadixSort::RadixSort() = default;
 
 // IF NEGATIVE NUMBERS ARE INCLUDED, ELEMENTS SHOULD BE CONVERTED TO ABSOLUTE
-int RadixSort::GetStepNumber(int array[], int size) {
+int RadixSort::GetStepNumber(const int *array, int size) {
     int greatestElement = 0;
     for (int i = 0; i < size; i++) {
         if (array[i] > greatestElement)
@@ -28,12 +28,13 @@ void RadixSort::SortElementsByAscendingOrder(int array[], int size) {
         DistributeElementsByRadix(array, size, stepIndex);
         stepIndex++;
     }
-
 }
 
 void RadixSort::DistributeElementsByRadix(int array[], int size, int step) {
-    int radixArray[10][size/2]; // static array assignment can cause limitation problem on sizing
+    const int maxArraySize = size / 2; // change that as size / 2
+    int radixArray[10][maxArraySize]; // static array assignment can cause limitation problem on sizing
     int currentRadixIndex[10];
+    memset(currentRadixIndex, 0, sizeof(currentRadixIndex));
 
     for (int i = 0; i < size; i++) {
         int modulo = array[i] / pow(10, step);
@@ -42,9 +43,11 @@ void RadixSort::DistributeElementsByRadix(int array[], int size, int step) {
         currentRadixIndex[modulo]++;
     }
 
+    int q = 0;
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < currentRadixIndex[i]; j++) {
-            array[i] = radixArray[i][j];
+            array[q] = radixArray[i][j];
+            q++;
         }
     }
 }

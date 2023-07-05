@@ -4,14 +4,15 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include <cstring>
 
 class RadixSort {
 public:
     RadixSort();
     ~RadixSort();
-    static int GetStepNumber(int array[], int size);
+    static int GetStepNumber(const int *array, int size);
     static void SortElementsByAscendingOrder(int array[], int size);
-    static void DistributeElementsByRadix(int array[], int size, int step)
+    static void DistributeElementsByRadix(int array[], int size, int step);
 };
 
 
