@@ -2,6 +2,16 @@
 
 RadixSort::RadixSort() = default;
 
+void RadixSort::SortElementsByAscendingOrder(int array[], int size) {
+    int stepCount = GetStepNumber(array, size);
+
+    int stepIndex = 0;
+    while (stepIndex < stepCount) {
+        DistributeElementsByRadix(array, size, stepIndex);
+        stepIndex++;
+    }
+}
+
 // IF NEGATIVE NUMBERS ARE INCLUDED, ELEMENTS SHOULD BE CONVERTED TO ABSOLUTE
 int RadixSort::GetStepNumber(const int *array, int size) {
     int greatestElement = 0;
@@ -15,24 +25,17 @@ int RadixSort::GetStepNumber(const int *array, int size) {
         digitCount = 1;
     else
         digitCount = static_cast<int>(std::log10(std::abs(static_cast<double>(greatestElement)))) + 1;
-    // I don't get above line ^
 
     return digitCount;
 }
 
-void RadixSort::SortElementsByAscendingOrder(int array[], int size) {
-    int stepCount = GetStepNumber(array, size);
-
-    int stepIndex = 0;
-    while (stepIndex < stepCount) {
-        DistributeElementsByRadix(array, size, stepIndex);
-        stepIndex++;
-    }
-}
-
 void RadixSort::DistributeElementsByRadix(int array[], int size, int step) {
     const int maxArraySize = size / 2; // change that as size / 2
-    int radixArray[10][maxArraySize]; // static array assignment can cause limitation problem on sizing
+    int **radixArray = new int*[10];
+    for (int i = 0; i < 10; ++i) {
+        radixArray[i] = new int[maxArraySize];
+    }
+
     int currentRadixIndex[10];
     memset(currentRadixIndex, 0, sizeof(currentRadixIndex));
 
@@ -52,4 +55,10 @@ void RadixSort::DistributeElementsByRadix(int array[], int size, int step) {
     }
 }
 
-RadixSort::~RadixSort() = default;
+RadixSort::~RadixSort() {
+    for (int i = 0; i < 10; ++i) {
+        delete[] radixArray[i];
+    }
+
+    delete[] radixArray;
+};
