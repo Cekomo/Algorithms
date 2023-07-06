@@ -2,7 +2,7 @@
 
 RadixSort::RadixSort() = default;
 
-void RadixSort::SortElementsByAscendingOrder(int array[], int size) {
+void RadixSort::SortElementsByDescendingOrder(int array[], int size) {
     int stepCount = GetStepNumber(array, size);
 
     int stepIndex = 0;
@@ -39,20 +39,37 @@ void RadixSort::DistributeElementsByRadix(int array[], int size, int step) {
     int currentRadixIndex[10];
     memset(currentRadixIndex, 0, sizeof(currentRadixIndex));
 
-    for (int i = 0; i < size; i++) {
+    for (int i = size - 1; i >= 0; i--) {
         int modulo = array[i] / pow(10, step);
         modulo = modulo % 10;
         radixArray[modulo][currentRadixIndex[modulo]] = array[i];
         currentRadixIndex[modulo]++;
     }
 
-    int q = 0;
+    int q = size - 1;
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < currentRadixIndex[i]; j++) {
             array[q] = radixArray[i][j];
-            q++;
+            q--;
         }
     }
+
+//                    **SORT BY ASCENDING ORDER**
+
+//    for (int i = 0; i < size>; i++) {
+//        int modulo = array[i] / pow(10, step);
+//        modulo = modulo % 10;
+//        radixArray[modulo][currentRadixIndex[modulo]] = array[i];
+//        currentRadixIndex[modulo]++;
+//    }
+
+//    int q = 0;
+//    for (int i = 0; i < 10; i++) {
+//        for (int j = 0; j < currentRadixIndex[i]; j++) {
+//            array[q] = radixArray[i][j];
+//            q++;
+//        }
+//    }
 }
 
 RadixSort::~RadixSort() {

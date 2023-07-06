@@ -13,7 +13,7 @@ private:
 public:
     RadixSort();
     ~RadixSort();
-    static void SortElementsByAscendingOrder(int array[], int size);
+    static void SortElementsByDescendingOrder(int array[], int size);
     static int GetStepNumber(const int *array, int size);
     static void DistributeElementsByRadix(int array[], int size, int step);
 };

@@ -59,7 +59,7 @@ int main() {
 //    MergeSort::SplitAndMerge(elements, size);
 //    QuickSort::SortByAscendingOrder(elements, 0, size);
 //    HeapSort::SortByAscendingOrder(elements, size);
-    RadixSort::SortElementsByAscendingOrder(elements, size);
+    RadixSort::SortElementsByDescendingOrder(elements, size);
 
     auto endTime = std::chrono::steady_clock::now();
 
