@@ -11,6 +11,8 @@
 #include "HeapSort.h"
 #include "RadixSort.h"
 
+#include "LinearSearch.h"
+
 int ExtractSizeFromFilename(const std::string& filename) {
     // Find the position of the last underscore character
     size_t lastUnderscorePos = filename.find_last_of('_');
@@ -37,7 +39,7 @@ int main() {
     std::string line;
     int size = ExtractSizeFromFilename(fileName);
     //    int* elements = new int[size];
-    int elements[size];
+    int *elements = new int[size];
 
     int index = 0;
     while (std::getline(inputFile, line)) {
@@ -51,23 +53,34 @@ int main() {
         }
     }
 //
+
+    int value;
+    std::cout << "Enter the value that you want to search: ";
+    std::cin >> value;
+
     auto startTime = std::chrono::steady_clock::now();
 
+    //      **SORTING IMPLEMENTATIONS**
 //    InsertionSort::SortByAscending(elements, size);
 //    BubbleSort::SortByAscending(elements, size);
 //    SelectionSort::SortByAscending(elements,size);
 //    MergeSort::SplitAndMerge(elements, size);
 //    QuickSort::SortByAscendingOrder(elements, 0, size);
 //    HeapSort::SortByAscendingOrder(elements, size);
-    RadixSort::SortElementsByDescendingOrder(elements, size);
+//    RadixSort::SortElementsByDescendingOrder(elements, size);
+
+    //      **SEARCHING IMPLEMENTATIONS**
+    int valueIndex = LinearSearch::GetValueIndex(value, elements, size);
+
+    std::cout << "Index of the element is: " << valueIndex << std::endl;
 
     auto endTime = std::chrono::steady_clock::now();
 
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
 
     // Print variables
-    for (int i = 0; i < size; i++)
-        std::cout << elements[i] << " ";
+//    for (int i = 0; i < size; i++)
+//        std::cout << elements[i] << " ";
 
 
     std::cout << std::endl;
@@ -80,7 +93,7 @@ int main() {
     std::string bye;
     std::cin >> bye;  // Wait for user to press enter
 
-    //    delete[] elements;
+    delete[] elements;
     return 0;
 }
 
