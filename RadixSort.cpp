@@ -39,37 +39,37 @@ void RadixSort::DistributeElementsByRadix(int array[], int size, int step) {
     int currentRadixIndex[10];
     memset(currentRadixIndex, 0, sizeof(currentRadixIndex));
 
-    for (int i = size - 1; i >= 0; i--) {
+//    for (int i = size - 1; i >= 0; i--) {
+//        int modulo = array[i] / pow(10, step);
+//        modulo = modulo % 10;
+//        radixArray[modulo][currentRadixIndex[modulo]] = array[i];
+//        currentRadixIndex[modulo]++;
+//    }
+//
+//    int q = size - 1;
+//    for (int i = 0; i < 10; i++) {
+//        for (int j = 0; j < currentRadixIndex[i]; j++) {
+//            array[q] = radixArray[i][j];
+//            q--;
+//        }
+//    }
+
+//                    **SORT BY ASCENDING ORDER**
+
+    for (int i = 0; i < size; i++) {
         int modulo = array[i] / pow(10, step);
         modulo = modulo % 10;
         radixArray[modulo][currentRadixIndex[modulo]] = array[i];
         currentRadixIndex[modulo]++;
     }
 
-    int q = size - 1;
+    int q = 0;
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < currentRadixIndex[i]; j++) {
             array[q] = radixArray[i][j];
-            q--;
+            q++;
         }
     }
-
-//                    **SORT BY ASCENDING ORDER**
-
-//    for (int i = 0; i < size>; i++) {
-//        int modulo = array[i] / pow(10, step);
-//        modulo = modulo % 10;
-//        radixArray[modulo][currentRadixIndex[modulo]] = array[i];
-//        currentRadixIndex[modulo]++;
-//    }
-
-//    int q = 0;
-//    for (int i = 0; i < 10; i++) {
-//        for (int j = 0; j < currentRadixIndex[i]; j++) {
-//            array[q] = radixArray[i][j];
-//            q++;
-//        }
-//    }
 }
 
 RadixSort::~RadixSort() {

@@ -12,6 +12,7 @@
 #include "RadixSort.h"
 
 #include "LinearSearch.h"
+#include "JumpSearch.h"
 
 int ExtractSizeFromFilename(const std::string& filename) {
     // Find the position of the last underscore character
@@ -70,8 +71,9 @@ int main() {
 //    RadixSort::SortElementsByDescendingOrder(elements, size);
 
     //      **SEARCHING IMPLEMENTATIONS**
-    int valueIndex = LinearSearch::GetValueIndex(value, elements, size);
-
+//    int valueIndex = LinearSearch::GetValueIndex(value, elements, size);
+    int valueIndex = JumpSearch::GetIndexFromJumpSearch(value, elements, size);
+//
     std::cout << "Index of the element is: " << valueIndex << std::endl;
 
     auto endTime = std::chrono::steady_clock::now();
@@ -85,6 +87,20 @@ int main() {
 
     std::cout << std::endl;
     std::cout << "Time taken by algorithm: " << duration.count() << " milliseconds.";
+
+    // ** FILE REGISTRY
+//    std::string outputFileName = "sorted_" + fileName;
+//    std::ofstream outputFile(outputFileName);
+//    if (!outputFile) {
+//        std::cerr << "Error creating output file: " << outputFileName << std::endl;
+//        return 1;
+//    }
+//
+//// Write the sorted elements to the output file
+//    for (int i = 0; i < size; i++) {
+//        outputFile << elements[i] << std::endl;
+//    }
+    // ** FILE REGISTRY
 
     // Close the file
     inputFile.close();
