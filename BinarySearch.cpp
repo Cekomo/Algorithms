@@ -2,28 +2,24 @@
 
 BinarySearch::BinarySearch() = default;
 
-int BinarySearch::GetIndexFromBinarySearch(int value, int array[], int size) {
-    if (array[(size - 1) / 2] == value) return (size - 1) / 2;
+int BinarySearch::GetIndexFromBinarySearch(int value, const int *array, int size) {
+    int left = 0;
+    int right = size - 1;
+    int mid = (left + right) / 2;
 
-    int index = -1;
-    int *splitArray = nullptr; // new int[size / 2];
-    if (array[(size - 1) / 2] > value && size > 1) {
-        splitArray = new int[size / 2];
-        for (int i = 0; i < size / 2 - 1; i++)
-            splitArray[i] = array[i];
+    while (array[mid] != value && (right - left) > 0) {
+        if (array[mid] > value) {
+            right = mid - 1;
+        }
+        else if (array[mid] < value) {
+            left = mid + 1;
+        }
 
-        index = GetIndexFromBinarySearch(value, splitArray, size / 2);
-    }
-    else if (array[(size - 1) / 2] < value && size > 1) {
-        splitArray = new int[size - size / 2];
-        for (int i = 0; i < size - size / 2; i++)
-            splitArray[i] = array[(size / 2) + i];
-
-        index = GetIndexFromBinarySearch(value, splitArray, size - size / 2);
+        mid = (left + right) / 2;
     }
 
-    delete[] splitArray;
-    return index;
+    if (array[mid] == value) return mid;
+    else return -1;
 }
 
 BinarySearch::~BinarySearch() {

@@ -8,11 +8,10 @@
 class BinarySearch {
 private:
     int *splitArray;
-    
+
 public:
     BinarySearch();
-    static int GetIndexFromBinarySearch(int value, int array[], int size);
-    static int SplitArray(int value, int array[], int size);
+    static int GetIndexFromBinarySearch(int value, const int *array, int size);
     ~BinarySearch();
 };
 
