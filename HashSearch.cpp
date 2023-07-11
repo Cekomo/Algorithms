@@ -10,9 +10,9 @@ int HashSearch::ComputeHashCode(std::string key) {
     if (keyLength < 2) return 0;
 
     // capital letter presence is NOT handled
-    int firstLetterIndex = (int)key[0] - 96;
-    int secondLastLetterIndex = (int)key[keyLength-2] - 96;
-    int lastLetterIndex = (int)key[keyLength-1] - 96;
+    int firstLetterIndex = ((int)key[0] - 96) ;
+    int secondLastLetterIndex = ((int)key[keyLength-2] - 96) ;
+    int lastLetterIndex = ((int)key[keyLength-1] - 96) ;
 
     int keyLetterSum = 0;
     for (int i = 0; i < keyLength; i++)
@@ -30,7 +30,7 @@ int HashSearch::ComputeHashCode(std::string key) {
     return (10 * onesDigitOfSum) + GetDigit(hashDigitSum, hashSumLength-1);
 }
 
-int GetDigit(int number, int position) {
+int HashSearch::GetDigit(int number, int position) {
     int divisor = 1;
     for (int i = 1; i < position; i++)
         divisor *= 10;
@@ -56,8 +56,10 @@ void HashSearch::Insert(std::string key, int data) {
     }
 
     std::ofstream file("HashTable.txt", std::ios::app); // Open the file in append mode
-    if (file.is_open())
-        file << key << " " << data << std::endl;
+    if (file.is_open()) {
+        file << bucketIndex << " " << data << std::endl;
+        file.close();
+    }
 }
 
 int HashSearch::GetValue(std::string key) {
@@ -156,6 +158,12 @@ void HashSearch::Resize(int newSize) { // method only allows increasing bucket s
     delete[] buckets;
     buckets = newBuckets;
     bucketSize = newSize;
+}
+
+HashSearch::Node::Node(std::string key, int data) { // why??
+    this->key = key;
+    this->data = data;
+    this->next = nullptr;
 }
 
 HashSearch::~HashSearch() {

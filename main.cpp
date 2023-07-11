@@ -28,39 +28,39 @@ int ExtractSizeFromFilename(const std::string& filename) {
 }
 
 int main() {
-    std::string fileName;
-    std::cout << "Enter the file name: ";
-    std::cin >> fileName;
-
-    // Open the file
-    std::ifstream inputFile(fileName);
-    if (!inputFile) {
-        std::cerr << "Error opening file: " << fileName << std::endl;
-        return 1;
-    }
-
-    // Read and display the contents of the file
-    std::string line;
-    int size = ExtractSizeFromFilename(fileName);
-    //    int* elements = new int[size];
-    int *elements = new int[size];
-
-    int index = 0;
-    while (std::getline(inputFile, line)) {
-        // Convert the line to an integer and store it in the array
-        elements[index++] = std::stoi(line);
-
-        // Check if the array has reached its maximum size
-        if (index >= size) {
-//            std::cerr << "Array size exceeds maximum limit" << std::endl;
-            break;
-        }
-    }
+//    std::string fileName;
+//    std::cout << "Enter the file name: ";
+//    std::cin >> fileName;
+//
+//    // Open the file
+//    std::ifstream inputFile(fileName);
+//    if (!inputFile) {
+//        std::cerr << "Error opening file: " << fileName << std::endl;
+//        return 1;
+//    }
+//
+//    // Read and display the contents of the file
+//    std::string line;
+//    int size = ExtractSizeFromFilename(fileName);
+//    //    int* elements = new int[size];
+//    int *elements = new int[size];
+//
+//    int index = 0;
+//    while (std::getline(inputFile, line)) {
+//        // Convert the line to an integer and store it in the array
+//        elements[index++] = std::stoi(line);
+//
+//        // Check if the array has reached its maximum size
+//        if (index >= size) {
+////            std::cerr << "Array size exceeds maximum limit" << std::endl;
+//            break;
+//        }
+//    }
 //
 
-    int value;
-    std::cout << "Enter the value that you want to search: ";
-    std::cin >> value;
+//    int value;
+//    std::cout << "Enter the value that you want to search: ";
+//    std::cin >> value;
 
     auto startTime = std::chrono::steady_clock::now();
 
@@ -78,7 +78,8 @@ int main() {
 //    int valueIndex = JumpSearch::GetIndexFromJumpSearch(value, elements, size);
 //    int valueIndex = BinarySearch::GetIndexFromBinarySearch(value, elements, size);
 //    int valueIndex = ExponentialSearch::GetElementIndex(value, elements, size);
-    HashSearch::Insert("cemil", 26041999);
+    HashSearch *hashSearch = new HashSearch(1000);
+    hashSearch->Insert("aysegul", 8071988);
 //
 //    std::cout << "Index of the element is: " << valueIndex << std::endl;
 
@@ -109,13 +110,13 @@ int main() {
     // ** FILE REGISTRY
 
     // Close the file
-    inputFile.close();
+//    inputFile.close();
 
     std::cout << std::endl;
     std::string bye;
     std::cin >> bye;  // Wait for user to press enter
 
-    delete[] elements;
+//    delete[] elements;
     return 0;
 }
 

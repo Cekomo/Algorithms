@@ -18,22 +18,20 @@ private:
     struct Bucket {
         int hashCode = 0;
         Node *head = nullptr;
-
-        // Bucket(); // necessary if custom constructor is needed
     };
 
     int bucketSize;
     int nodeSize;
-    static Bucket *buckets;
+    Bucket *buckets;
 
-    static int ComputeHashCode(std::string key);
-    static int GetDigit(int, int);
+    int ComputeHashCode(std::string key);
+    int GetDigit(int, int);
 
 public:
-    HashSearch(int bucketSize);
+    explicit HashSearch(int bucketSize);
     ~HashSearch();
 
-    static void Insert(std::string key, int data);
+    void Insert(std::string key, int data);
     int GetValue(std::string key);
     void Remove(std::string key);
     bool ContainsKey(std::string key);
