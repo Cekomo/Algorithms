@@ -127,6 +127,12 @@ build CMakeFiles/Algorithms.dir/ExponentialSearch.cpp.obj: CXX_COMPILER__Algorit
   OBJECT_DIR = CMakeFiles\Algorithms.dir
   OBJECT_FILE_DIR = CMakeFiles\Algorithms.dir
 
+build CMakeFiles/Algorithms.dir/HashSearch.cpp.obj: CXX_COMPILER__Algorithms_Debug D$:/Repos/Algorithms/HashSearch.cpp || cmake_object_order_depends_target_Algorithms
+  DEP_FILE = CMakeFiles\Algorithms.dir\HashSearch.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Algorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles\Algorithms.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Algorithms
@@ -135,7 +141,7 @@ build CMakeFiles/Algorithms.dir/ExponentialSearch.cpp.obj: CXX_COMPILER__Algorit
 #############################################
 # Link the executable Algorithms.exe
 
-build Algorithms.exe: CXX_EXECUTABLE_LINKER__Algorithms_Debug CMakeFiles/Algorithms.dir/InsertionSort.cpp.obj CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj CMakeFiles/Algorithms.dir/main.cpp.obj CMakeFiles/Algorithms.dir/BubbleSort.cpp.obj CMakeFiles/Algorithms.dir/SelectionSort.cpp.obj CMakeFiles/Algorithms.dir/MergeSort.cpp.obj CMakeFiles/Algorithms.dir/QuickSort.cpp.obj CMakeFiles/Algorithms.dir/HeapSort.cpp.obj CMakeFiles/Algorithms.dir/RadixSort.cpp.obj CMakeFiles/Algorithms.dir/LinearSearch.cpp.obj CMakeFiles/Algorithms.dir/JumpSearch.cpp.obj CMakeFiles/Algorithms.dir/BinarySearch.cpp.obj CMakeFiles/Algorithms.dir/ExponentialSearch.cpp.obj
+build Algorithms.exe: CXX_EXECUTABLE_LINKER__Algorithms_Debug CMakeFiles/Algorithms.dir/InsertionSort.cpp.obj CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj CMakeFiles/Algorithms.dir/main.cpp.obj CMakeFiles/Algorithms.dir/BubbleSort.cpp.obj CMakeFiles/Algorithms.dir/SelectionSort.cpp.obj CMakeFiles/Algorithms.dir/MergeSort.cpp.obj CMakeFiles/Algorithms.dir/QuickSort.cpp.obj CMakeFiles/Algorithms.dir/HeapSort.cpp.obj CMakeFiles/Algorithms.dir/RadixSort.cpp.obj CMakeFiles/Algorithms.dir/LinearSearch.cpp.obj CMakeFiles/Algorithms.dir/JumpSearch.cpp.obj CMakeFiles/Algorithms.dir/BinarySearch.cpp.obj CMakeFiles/Algorithms.dir/ExponentialSearch.cpp.obj CMakeFiles/Algorithms.dir/HashSearch.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Algorithms.dir

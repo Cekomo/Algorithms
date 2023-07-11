@@ -3,12 +3,8 @@
 
 #include <string>
 #include <iostream>
-//#include <cmath>
 
 class BinarySearch {
-private:
-    int *splitArray;
-
 public:
     BinarySearch();
     static int GetIndexFromBinarySearch(int value, const int *array, int size);

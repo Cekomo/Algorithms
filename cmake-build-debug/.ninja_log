@@ -1,20 +1,19 @@
 # ninja log v5
 10	350	7104199318064479	CMakeFiles/Algorithms.dir/LinearSearch.cpp.obj	42bb90303e442d49
 26	368	7099502350130336	CMakeFiles/Algorithms.dir/QuickSort.cpp.obj	827ca43facde2a0d
-2	436	7106755613379536	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
+2	440	7107132612758878	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
 3	44	7104225289553359	CMakeFiles/Algorithms.dir/NumberGenerator.cpp.obj	6920ac8a8a352009
 21	338	7099502349817501	CMakeFiles/Algorithms.dir/SelectionSort.cpp.obj	723f69e3ed6849f3
 18	327	7099502349697023	CMakeFiles/Algorithms.dir/BubbleSort.cpp.obj	ff010f31ef19413e
 10	358	7099502350014748	CMakeFiles/Algorithms.dir/MergeSort.cpp.obj	9a354f9250c89909
 3	339	7099502349817501	CMakeFiles/Algorithms.dir/InsertionSort.cpp.obj	1aa0984cfaea3a4f
-252	344	7106949890020421	Algorithms.exe	64efdcbd4fe658b
+832	1035	7107171940850439	Algorithms.exe	238dec2876abc43c
 12	304	7102891887646828	CMakeFiles/Algorithms.dir/HeapSort.cpp.obj	47f221d9508f4d9c
 11	320	7104254396877360	CMakeFiles/Algorithms.dir/RadixSort.cpp.obj	3537fec66bbbf285
 3	294	7104411030743299	CMakeFiles/Algorithms.dir/JumpSearch.cpp.obj	492122bcc27780d5
-3	252	7106949889120533	CMakeFiles/Algorithms.dir/BinarySearch.cpp.obj	55a329b23974aa5d
 6	277	7107132611146661	CMakeFiles/Algorithms.dir/BinarySearch.cpp.obj	55a329b23974aa5d
-10	364	7107132612018901	CMakeFiles/Algorithms.dir/ExponentialSearch.cpp.obj	95ec610bc547fba4
-2	440	7107132612758878	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c
-440	642	7107132614766974	Algorithms.exe	238dec2876abc43c
 4	832	7107171938853295	CMakeFiles/Algorithms.dir/ExponentialSearch.cpp.obj	95ec610bc547fba4
-832	1035	7107171940850439	Algorithms.exe	238dec2876abc43c
+16	377	7108111182269708	CMakeFiles/Algorithms.dir/BinarySearch.cpp.obj	55a329b23974aa5d
+8	377	7108111182269708	CMakeFiles/Algorithms.dir/ExponentialSearch.cpp.obj	95ec610bc547fba4
+11	380	7108111182304928	CMakeFiles/Algorithms.dir/HashSearch.cpp.obj	98606817330d756c
+3	444	7108111182938626	CMakeFiles/Algorithms.dir/main.cpp.obj	fb66dc09aa8d903c

@@ -15,6 +15,7 @@
 #include "JumpSearch.h"
 #include "BinarySearch.h"
 #include "ExponentialSearch.h"
+#include "HashSearch.h"
 
 int ExtractSizeFromFilename(const std::string& filename) {
     // Find the position of the last underscore character
@@ -76,9 +77,10 @@ int main() {
 //    int valueIndex = LinearSearch::GetValueIndex(value, elements, size);
 //    int valueIndex = JumpSearch::GetIndexFromJumpSearch(value, elements, size);
 //    int valueIndex = BinarySearch::GetIndexFromBinarySearch(value, elements, size);
-    int valueIndex = ExponentialSearch::GetElementIndex(value, elements, size);
-
-    std::cout << "Index of the element is: " << valueIndex << std::endl;
+//    int valueIndex = ExponentialSearch::GetElementIndex(value, elements, size);
+    HashSearch::Insert("cemil", 26041999);
+//
+//    std::cout << "Index of the element is: " << valueIndex << std::endl;
 
     auto endTime = std::chrono::steady_clock::now();
 
