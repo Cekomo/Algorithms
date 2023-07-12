@@ -79,7 +79,7 @@ int main() {
 //    int valueIndex = BinarySearch::GetIndexFromBinarySearch(value, elements, size);
 //    int valueIndex = ExponentialSearch::GetElementIndex(value, elements, size);
     HashSearch *hashSearch = new HashSearch(1000);
-    hashSearch->Insert("suzan", 12041958);
+    hashSearch->Insert("holy", 30071972);
 //    hashSearch->GetValue("aysegul");
 //
 //    std::cout << "Index of the element is: " << valueIndex << std::endl;

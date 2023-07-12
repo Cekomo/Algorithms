@@ -39,24 +39,48 @@ int HashSearch::GetDigit(int number, int position) {
 }
 
 // do not forget that if you LINK, you MUST handle NEXT pointer
+#include <fstream>
+#include <iostream>
+#include <vector>
+
 void HashSearch::Insert(std::string key, int data) {
-    Node *newNode = new Node(key, data);
+    Node* newNode = new Node(key, data);
 
     int bucketIndex = ComputeHashCode(newNode->key);
-    std::cout << bucketIndex << std::endl;
     if (buckets[bucketIndex].head == nullptr) {
         buckets[bucketIndex].head = newNode;
-    }
-    else {
-        Node *currentNode = buckets[bucketIndex].head;
-        while (currentNode->next != nullptr) {
+    } else {
+        Node* currentNode = buckets[bucketIndex].head;
+        Node* previousNode = nullptr;
+        bool inserted = false;
+
+        while (currentNode != nullptr) {
+            if (currentNode->key == key) {
+                // Element with the same key already exists,
+                // insert the new element before it on the same line
+                newNode->next = currentNode;
+                if (previousNode == nullptr) {
+                    buckets[bucketIndex].head = newNode;
+                } else {
+                    previousNode->next = newNode;
+                }
+                inserted = true;
+                break;
+            }
+
+            previousNode = currentNode;
             currentNode = currentNode->next;
         }
 
-        currentNode->next = newNode;
+        if (!inserted) {
+            // Element with the same key does not exist,
+            // append the new element as a separate line
+            if (previousNode != nullptr) {
+                previousNode->next = newNode;
+            }
+        }
     }
 
-    // Open the text file in both input and output modes
     std::ifstream inputFile("HashTable.txt");
     if (!inputFile) {
         std::cout << "Unable to open the file." << std::endl;
@@ -69,9 +93,18 @@ void HashSearch::Insert(std::string key, int data) {
 
     while (std::getline(inputFile, line)) {
         if (lineNumber == bucketIndex) {
-            lines.push_back(key + " " + std::to_string(data));
+            std::string updatedLine = line;
+            Node* currentNode = buckets[bucketIndex].head;
+
+            while (currentNode != nullptr) {
+                updatedLine += " " + currentNode->key + " " + std::to_string(currentNode->data);
+                currentNode = currentNode->next;
+            }
+
+            lines.push_back(updatedLine);
+        } else {
+            lines.push_back(line);
         }
-        lines.push_back(line);
         ++lineNumber;
     }
 
