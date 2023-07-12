@@ -43,6 +43,7 @@ void HashSearch::Insert(std::string key, int data) {
     Node *newNode = new Node(key, data);
 
     int bucketIndex = ComputeHashCode(newNode->key);
+    std::cout << bucketIndex << std::endl;
     if (buckets[bucketIndex].head == nullptr) {
         buckets[bucketIndex].head = newNode;
     }
@@ -55,11 +56,41 @@ void HashSearch::Insert(std::string key, int data) {
         currentNode->next = newNode;
     }
 
-    std::ofstream file("HashTable.txt", std::ios::app); // Open the file in append mode
-    if (file.is_open()) {
-        file << bucketIndex << " " << data << std::endl;
-        file.close();
+    // Open the text file in both input and output modes
+    std::ifstream inputFile("HashTable.txt");
+    if (!inputFile) {
+        std::cout << "Unable to open the file." << std::endl;
+        return;
     }
+
+    std::vector<std::string> lines;
+    std::string line;
+    int lineNumber = 1;
+
+    while (std::getline(inputFile, line)) {
+        if (lineNumber == bucketIndex) {
+            lines.push_back(key + " " + std::to_string(data));
+        }
+        lines.push_back(line);
+        ++lineNumber;
+    }
+
+    inputFile.close();
+
+    std::ofstream outputFile("HashTable.txt");
+    if (!outputFile) {
+        std::cout << "Unable to open the file." << std::endl;
+        return;
+    }
+
+    for (const auto& line : lines) {
+        outputFile << line << std::endl;
+    }
+
+    outputFile.close();
+
+    delete newNode;
+    nodeSize++;
 }
 
 int HashSearch::GetValue(std::string key) {
